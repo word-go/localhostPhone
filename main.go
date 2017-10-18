@@ -74,7 +74,7 @@ func main() {
 			ctx.JSON(iris.Map{
 				"status": 0,
 				"content": iris.Map{
-					"phone":            v.Phone,
+					"phone":            mobile,
 					"province":         v.Province,
 					"city":             v.City,
 					"service_provider": v.ServiceProvider,
