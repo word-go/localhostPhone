@@ -72,8 +72,15 @@ func main() {
 		}
 		if v, ok := localhostPhoneData[m]; ok {
 			ctx.JSON(iris.Map{
-				"status":  0,
-				"content": v,
+				"status": 0,
+				"content": iris.Map{
+					"phone":            v.Phone,
+					"province":         v.Province,
+					"city":             v.City,
+					"service_provider": v.ServiceProvider,
+					"city_code":        v.CityCode,
+					"post_code":        v.PostCode,
+				},
 			})
 		} else {
 			ctx.JSON(iris.Map{
