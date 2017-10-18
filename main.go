@@ -61,7 +61,7 @@ func main() {
 		mobile := ctx.Params().Get("mobile")
 		if !tool.CheckMobile(mobile) {
 			ctx.JSON(iris.Map{
-				"status":  400,
+				"status":  300,
 				"content": "手机号格式错误",
 			})
 			return
