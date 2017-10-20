@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机号码归属地查询</title>
+</head>
+<body>
+<div id="app">
+    <textarea v-model="mobiles" cols="100" rows="20"></textarea>
+    <textarea v-model="results" cols="100" rows="20"></textarea>
+
+    <input type="button" value="提 交" v-on:click="clickEvent()">
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            mobiles: '',
+            results: ''
+        },
+        methods: {
+            clickEvent: function () {
+                var self = this;
+                axios.post("./api", {mobiles: this.mobiles}).then(function (response) {
+                    self.results = response.data.content
+                });
+
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
